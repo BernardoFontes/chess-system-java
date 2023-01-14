@@ -47,8 +47,21 @@ public class Board {
         piece.position = position;
     }
 
+    public Piece removePiece(Position position){
+        if(!positionExists(position)){
+            throw new BoardException("Invalid position");
+        }
+        if (piece(position) == null){
+            return null;
+        }
+        Piece aux = piece(position);
+        aux.position = null;
+        pieces[position.getRow()][position.getColumn()] = null;
+        return aux;
+    }
+
     public boolean positionExists(Position position){
-        if (position.getColumn() >= 0 && position.getColumn() <= columns && position.getRow() >= 0 && position.getRow() <= rows){
+        if (position.getColumn() >= 0 && position.getColumn() < columns && position.getRow() >= 0 && position.getRow() < rows){
             return true;
         } else {
             return false;
@@ -62,4 +75,5 @@ public class Board {
     public Piece piece (Position position){
         return pieces[position.getRow()][position.getColumn()];
     }
+
 }
