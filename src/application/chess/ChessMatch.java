@@ -5,6 +5,7 @@ import application.boardgame.Board;
 import application.boardgame.BoardException;
 import application.boardgame.Piece;
 import application.boardgame.Position;
+import application.chess.pieces.Bishop;
 import application.chess.pieces.King;
 import application.chess.pieces.Pawn;
 import application.chess.pieces.Rook;
@@ -210,5 +211,9 @@ public class ChessMatch {
         placeNewPiece('e', 3, new Pawn(board, Color.WHITE));
         placeNewPiece('d', 5, new Pawn(board, Color.BLACK));
         placeNewPiece('b', 7, new Rook(board, Color.BLACK));
+        placeNewPiece('a', 1, new Bishop(board, Color.WHITE));
+        placeNewPiece('h', 1, new Bishop(board, Color.WHITE));
+        placeNewPiece('a', 6, new Bishop(board, Color.BLACK));
+        placeNewPiece('h', 6, new Bishop(board, Color.BLACK));
     }
 }
